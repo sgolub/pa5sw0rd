@@ -1,0 +1,222 @@
+:root {
+  --color-grey-01: #f8f9fa;
+  --color-grey-02: #e9ecef;
+  --color-grey-03: #dee2e6;
+  --color-grey-04: #ced4da;
+  --color-grey-05: #adb5bd;
+  --color-grey-06: #6c757d;
+  --color-grey-07: #495057;
+  --color-grey-08: #343a40;
+  --color-grey-09: #212529;
+
+  --color-yellow: #ffbe0b;
+  --color-orange: #fb5607;
+  --color-red: #ff006e;
+  --color-purple: #8338ec;
+  --color-blue: #3a86ff;
+
+  font-family: 'Iosevka Expanded', 'Courier New', Courier, monospace;
+  font-size: 14px;
+
+  color-scheme: light dark;
+  color: var(--color-grey-02);
+  background-color: var(--color-grey-09);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+#app {
+  margin-left: 25vw;
+  width: 640px;
+}
+
+button.regenerate {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button.regenerate svg {
+  fill: var(--color-grey-01);
+  transition: ease 0.3s;
+}
+
+button.regenerate:hover svg {
+  transform: rotate(-0.125turn);
+}
+
+button.regenerate:active svg {
+  transform: rotate(1.125turn);
+}
+
+button.copy {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button.copy svg {
+  fill: var(--color-grey-01);
+  transition: ease 0.3s;
+}
+
+button.copy:hover svg {
+  transform: translateY(-0.2rem);
+}
+
+button.copy:active svg {
+  transform: translateY(0.5rem);
+}
+
+.name {
+  font-family: 'Iosevka Slab', 'Courier New', Courier, monospace;
+  font-stretch: 200%;
+  user-select: none;
+}
+
+.password {
+  text-wrap: nowrap;
+  word-break: break-all;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border: solid 1px var(--color-grey-07);
+  background-color: var(--color-grey-08);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.row {
+  font-size: 2rem;
+  padding: 1rem 0;
+  border-radius: 0.75rem;
+  user-select: none;
+}
+
+.range input {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/***** Track Styles *****/
+input[type='range']::-webkit-slider-runnable-track {
+  background: var(--color-grey-08);
+  border: solid 1px var(--color-grey-07);
+  height: 1rem;
+  border-radius: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+input[type='range']::-moz-range-track {
+  background: var(--color-grey-08);
+  border: solid 1px var(--color-grey-07);
+  height: 1rem;
+  border-radius: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  margin-top: -0.55rem;
+  background-color: var(--color-blue);
+  height: 2rem;
+  width: 2rem;
+  border-radius: 1rem;
+}
+input[type='range']::-moz-range-thumb {
+  appearance: none;
+  border: none;
+  outline: none;
+  margin-top: -0.55rem;
+  background-color: var(--color-blue);
+  height: 2rem;
+  width: 2rem;
+  border-radius: 1rem;
+}
+
+.message {
+  font-size: 1.5rem;
+  color: var(--color-yellow);
+}
+
+.name .l,
+.password .l {
+  color: var(--color-grey-05);
+}
+.name .u,
+.password .u {
+  color: var(--color-grey-01);
+}
+.name .d,
+.password .d {
+  color: var(--color-blue);
+}
+.name .s,
+.password .s {
+  color: var(--color-orange);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--color-grey-09);
+    background-color: var(--color-grey-03);
+  }
+  .password {
+    border-color: var(--color-grey-05);
+    background-color: var(--color-grey-01);
+  }
+  .name .l,
+  .password .l {
+    color: var(--color-grey-06);
+  }
+  .name .u,
+  .password .u {
+    color: var(--color-grey-09);
+  }
+  .message {
+    color: var(--color-red);
+  }
+  /***** Track Styles *****/
+  input[type='range']::-webkit-slider-runnable-track {
+    border-color: var(--color-grey-05);
+    background-color: var(--color-grey-01);
+  }
+  input[type='range']::-moz-range-track {
+    border-color: var(--color-grey-05);
+    background-color: var(--color-grey-01);
+  }
+}
