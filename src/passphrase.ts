@@ -3,6 +3,7 @@ import {
   PASSPHRASE_MIN_SIZE,
   PASSPHRASE_MAX_SIZE,
   SYMBOLS,
+  DIGITS,
 } from './constants';
 import { Pa5sW0rdPassphraseOptions } from './types';
 import { inRange, randomize, doCapitalize } from './utils';
@@ -22,7 +23,7 @@ export default function passphrase(
   separators =
     separators && typeof separators === 'string'
       ? separators.split('')
-      : (separators as string[]) || SYMBOLS;
+      : (separators as string[]) || [...DIGITS, ...SYMBOLS];
 
   const words = randomize(dictionary, size);
   const delimiters = randomize(separators, size - 1);
