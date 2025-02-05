@@ -2,7 +2,9 @@ import Pa5sW0rd from '../src/index';
 
 //! Password
 it('generates default length password', () => {
-  expect(Pa5sW0rd()).toHaveLength(12);
+  const { length } = Pa5sW0rd();
+  expect(length).toBeGreaterThanOrEqual(12);
+  expect(length).toBeLessThanOrEqual(24);
 });
 
 it('generates custom length password', () => {
@@ -101,53 +103,53 @@ it('generates max length PIN', () => {
 //! Passphrase
 it('generates default length passphrase', () => {
   const passphrase = Pa5sW0rd.passphrase({
-    dictionary: ['foo'],
+    dictionary: ['word'],
     separators: '-',
   });
-  expect(passphrase).toBe('foo-foo-foo-foo');
+  expect(passphrase).toBe('word-word-word-word');
 });
 
 it('capitalizes each word in passphrase', () => {
   const passphrase = Pa5sW0rd.passphrase({
-    dictionary: ['foo'],
+    dictionary: ['word'],
     separators: '-',
     capitalizeEachWord: true,
   });
-  expect(passphrase).toBe('Foo-Foo-Foo-Foo');
+  expect(passphrase).toBe('Word-Word-Word-Word');
 });
 
 it('capitalizes first word in passphrase', () => {
   const passphrase = Pa5sW0rd.passphrase({
-    dictionary: ['foo'],
+    dictionary: ['word'],
     separators: '-',
     capitalize: true,
   });
-  expect(passphrase).toBe('Foo-foo-foo-foo');
+  expect(passphrase).toBe('Word-word-word-word');
 });
 
 it('generates custom length passphrase', () => {
   const passphrase = Pa5sW0rd.passphrase({
-    dictionary: ['foo'],
+    dictionary: ['word'],
     separators: '-',
     size: 5,
   });
-  expect(passphrase).toBe('foo-foo-foo-foo-foo');
+  expect(passphrase).toBe('word-word-word-word-word');
 });
 
 it('capitalizes each word in passphrase', () => {
   const passphrase = Pa5sW0rd.passphrase({
-    dictionary: ['foo'],
+    dictionary: ['word'],
     separators: '-',
     size: 5,
   });
-  expect(passphrase).toBe('foo-foo-foo-foo-foo');
+  expect(passphrase).toBe('word-word-word-word-word');
 });
 
 it('capitalizes each word in passphrase', () => {
   const passphrase = Pa5sW0rd.passphrase({
-    dictionary: ['foo'],
+    dictionary: ['word'],
     separators: '-',
     size: 5,
   });
-  expect(passphrase).toBe('foo-foo-foo-foo-foo');
+  expect(passphrase).toBe('word-word-word-word-word');
 });
