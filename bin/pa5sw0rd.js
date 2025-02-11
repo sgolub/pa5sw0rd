@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 import { program } from 'commander';
 
-import Pa5sW0rd from '../dist/pa5sw0rd.umd.cjs';
+import Pa5sW0rd from '../dist/index.js';
 
 program
     .name('pa5sw0rd')
