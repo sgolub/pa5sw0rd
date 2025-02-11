@@ -1,7 +1,10 @@
 import password from './password';
 import pin from './pin';
-import passphrase from './passphrase';
+import passphrase, { setDictionary } from './passphrase';
 import { PasswordOptions } from './common/options';
+import { WORDS } from './dictionary';
+
+setDictionary(WORDS);
 
 Pa5sW0rd.password = password;
 Pa5sW0rd.pin = pin;

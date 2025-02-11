@@ -7,7 +7,15 @@ import {
 } from '../common/constants';
 import { PassphraseOptions } from '../common/options';
 import { inRange, randomize, doCapitalize } from '../common/utils';
-import { WORDS } from '../dictionary';
+
+const WORDS: string[] = [];
+
+export function setDictionary(words: string[]): void {
+  if (WORDS.length) {
+    throw new Error('Dictionary is already set');
+  }
+  WORDS.concat(words);
+}
 
 export default function passphrase(opts: PassphraseOptions | string[]): string {
   opts = Array.isArray(opts) ? { dictionary: opts } : opts;
@@ -21,6 +29,10 @@ export default function passphrase(opts: PassphraseOptions | string[]): string {
 
   dictionary = [...new Set(dictionary)];
   dictionary = dictionary.length ? dictionary : WORDS;
+
+  if (!dictionary.length) {
+    throw new Error('Dictionary is empty');
+  }
 
   size = inRange(size, PASSPHRASE_MIN_SIZE, PASSPHRASE_MAX_SIZE);
   separators =
