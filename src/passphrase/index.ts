@@ -8,16 +8,16 @@ import {
 import { PassphraseOptions } from '../common/options';
 import { inRange, randomize, doCapitalize } from '../common/utils';
 
-const WORDS: string[] = [];
+const DICTIONARY: string[] = [];
 
-export function setDictionary(words: string[]): void {
-  if (WORDS.length) {
+passphrase.setDictionary = function (words: string[]): void {
+  if (DICTIONARY.length) {
     throw new Error('Dictionary is already set');
   }
-  WORDS.concat(words);
-}
+  DICTIONARY.concat(words);
+};
 
-export default function passphrase(opts: PassphraseOptions | string[]): string {
+function passphrase(opts: PassphraseOptions | string[]): string {
   opts = Array.isArray(opts) ? { dictionary: opts } : opts;
   let {
     dictionary,
@@ -28,7 +28,7 @@ export default function passphrase(opts: PassphraseOptions | string[]): string {
   } = opts;
 
   dictionary = [...new Set(dictionary)];
-  dictionary = dictionary.length ? dictionary : WORDS;
+  dictionary = dictionary.length ? dictionary : DICTIONARY;
 
   if (!dictionary.length) {
     throw new Error('Dictionary is empty');
@@ -58,3 +58,5 @@ export default function passphrase(opts: PassphraseOptions | string[]): string {
 
   return passphrase;
 }
+
+export default passphrase;

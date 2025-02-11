@@ -1,13 +1,9 @@
-import { webcrypto } from 'node:crypto';
-
 import password from './password';
 import pin from './pin';
 import passphrase from './passphrase';
-import { WORDS } from './dictionary';
-import crypto from './common/crypto';
 import { PasswordOptions } from './common/options';
+import { WORDS } from './dictionary';
 
-crypto(webcrypto as Crypto);
 passphrase.setDictionary(WORDS);
 
 Pa5sW0rd.password = password;

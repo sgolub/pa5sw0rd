@@ -88,7 +88,7 @@ export function shuffle<T>(array: T[]): T[] {
 }
 
 export function getRandomValues(count: number) {
-  return crypto.getRandomValues(new Uint32Array(count));
+  return crypto().getRandomValues(new Uint32Array(count));
 }
 
 export function doCapitalize(str: string) {

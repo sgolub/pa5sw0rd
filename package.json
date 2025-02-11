@@ -4,6 +4,46 @@
   "version": "0.0.0",
   "type": "module",
   "main": "./dist/pa5sw0rd.cjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "browser": {
+        "import": "./dist/index.js",
+        "require": "./dist/index.cjs"
+      },
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./password": {
+      "types": "./dist/password/index.d.ts",
+      "browser": {
+        "import": "./dist/password.js",
+        "require": "./dist/password.cjs"
+      }
+    },
+    "./pin": {
+      "types": "./dist/pin/index.d.ts",
+      "browser": {
+        "import": "./dist/pin.js",
+        "require": "./dist/pin.cjs"
+      }
+    },
+    "./passphrase": {
+      "types": "./dist/passphrase/index.d.ts",
+      "browser": {
+        "import": "./dist/passphrase.js",
+        "require": "./dist/passphrase.cjs"
+      }
+    },
+    "./dictionary": {
+      "types": "./dist/dictionary/index.d.ts",
+      "browser": {
+        "import": "./dist/dictionary.js",
+        "require": "./dist/dictionary.cjs"
+      }
+    }
+  },
   "bin": {
     "pa5": "./bin/pa5sw0rd.js",
     "pa5sw0rd": "./bin/pa5sw0rd.js"
@@ -15,8 +55,7 @@
   "scripts": {
     "dev": "vite",
     "test": "jest",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "tsc && vite build"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
