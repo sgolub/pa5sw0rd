@@ -10,6 +10,11 @@ import { inRange, randomize, doCapitalize } from '../common/utils';
 
 var DICTIONARY: string[] = [];
 
+/**
+ * Sets the dictionary to use.
+ *
+ * @param {string[]} words The dictionary to use.
+ */
 passphrase.setDictionary = function (words: string[]): void {
   if (DICTIONARY.length) {
     throw new Error('Dictionary is already set');
@@ -17,6 +22,12 @@ passphrase.setDictionary = function (words: string[]): void {
   DICTIONARY = [...new Set(words)];
 };
 
+/**
+ * Generates a passphrase.
+ *
+ * @param {PassphraseOptions | string[]} opts The options to use.
+ * @returns {string} The generated passphrase.
+ */
 function passphrase(opts: PassphraseOptions | string[]): string {
   opts = Array.isArray(opts) ? { dictionary: opts } : opts;
   let {

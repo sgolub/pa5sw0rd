@@ -2,6 +2,12 @@ import { LOWERCASE, DIGITS, SYMBOLS, UPPERCASE } from '../common/constants';
 import { PasswordOptions } from '../common/options';
 import { normolaze, filter, randomize, shuffle } from '../common/utils';
 
+/**
+ * Generates a password.
+ *
+ * @param {PasswordOptions | number} opts The options to use.
+ * @returns {string} The generated password.
+ */
 export default function password(opts: PasswordOptions | number = {}): string {
   if (typeof opts === 'number') {
     opts = { length: opts };
