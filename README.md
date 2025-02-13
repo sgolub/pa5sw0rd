@@ -1,2 +1,3 @@
-# pa5sw0rd
+# Pa5sW0rd
+
 Advanced password generator
