@@ -17,7 +17,7 @@ export type NormolizedPasswordOptions = {
 export type Range = [min: number, max?: number];
 
 export type PassphraseOptions = {
-  dictionary: string[];
+  dictionary?: string[];
   size?: number;
   separators?: string | string[];
   capitalize?: boolean;

@@ -8,13 +8,13 @@ import {
 import { PassphraseOptions } from '../common/options';
 import { inRange, randomize, doCapitalize } from '../common/utils';
 
-const DICTIONARY: string[] = [];
+var DICTIONARY: string[] = [];
 
 passphrase.setDictionary = function (words: string[]): void {
   if (DICTIONARY.length) {
     throw new Error('Dictionary is already set');
   }
-  DICTIONARY.concat(words);
+  DICTIONARY = [...new Set(words)];
 };
 
 function passphrase(opts: PassphraseOptions | string[]): string {

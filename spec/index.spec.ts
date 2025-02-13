@@ -153,3 +153,10 @@ it('capitalizes each word in passphrase', () => {
   });
   expect(passphrase).toBe('word-word-word-word-word');
 });
+
+it('generates default size passphrase', () => {
+  const passphrase = Pa5sW0rd.passphrase({
+    separators: '-',
+  });
+  expect(passphrase).toMatch(/^[a-z]+-[a-z]+-[a-z]+-[a-z]+$/);
+});
