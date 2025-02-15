@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Iosevka Fixed Extended';
+  src: url('./fonts/IosevkaFixed-Extended.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-stretch: expanded;
+  font-style: normal;
+}
+
 :root {
   --color-grey-01: #f8f9fa;
   --color-grey-02: #e9ecef;
@@ -15,7 +24,8 @@
   --color-purple: #8338ec;
   --color-blue: #3a86ff;
 
-  font-family: 'Iosevka Expanded', 'Courier New', Courier, monospace;
+  font-family: 'Iosevka Fixed Extended', 'Courier New', Courier, monospace;
+  font-feature-settings: 'ss01' 1;
   font-size: 16px;
 
   color-scheme: light dark;
@@ -76,8 +86,8 @@ body {
 }
 
 h1.name {
-  font-family: 'Iosevka', 'Courier New', Courier, monospace;
-  font-stretch: 200%;
+  font-family: 'Iosevka Fixed Extended', 'Courier New', Courier, monospace;
+  font-weight: normal;
   user-select: none;
   font-size: 3.2rem;
   line-height: 1.2;
@@ -244,13 +254,11 @@ input[type='range']:focus::-moz-range-thumb {
   color: var(--color-yellow);
 }
 
-/* .l,
-.u,
-.d,
-.s {
-  display: inline-block;
-  width: 1.36rem;
-} */
+.invisible {
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+}
 
 .name .l,
 .password .l {

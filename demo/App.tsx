@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Pa5sW0rd from '../src/index';
+import Pa5sW0rd from '../src/browser';
 
 enum KIND {
   PASSWORD = 'password',
@@ -32,6 +32,10 @@ export default function App() {
   const [s_min, set_s_min] = useState(1);
   const [s_max, set_s_max] = useState<number | undefined>(0);
 
+  const [capitalize_is_enabled, set_capitalize_is_enabled] = useState(false);
+  const [capitalize_each_is_enabled, set_capitalize_each_is_enabled] =
+    useState(false);
+
   const generatePassword = () =>
     set_password(
       Pa5sW0rd({
@@ -45,8 +49,9 @@ export default function App() {
   const generatePassphrase = () =>
     set_passphrase(
       Pa5sW0rd.passphrase({
-        dictionary: [],
         size: passphrase_size,
+        capitalize: capitalize_is_enabled,
+        capitalizeEachWord: capitalize_each_is_enabled,
       }),
     );
   const generate = () => {
@@ -66,7 +71,9 @@ export default function App() {
   };
 
   const copy = () => {
-    navigator.clipboard.writeText(password);
+    navigator.clipboard.writeText(
+      kind === KIND.PASSWORD ? password : kind === KIND.PIN ? pin : passphrase,
+    );
     set_message('Copied to clipboard!');
   };
 
@@ -81,6 +88,8 @@ export default function App() {
     kind,
     pin_size,
     passphrase_size,
+    capitalize_is_enabled,
+    capitalize_each_is_enabled,
   ]);
 
   return (
@@ -161,21 +170,21 @@ export default function App() {
         {kind === KIND.PASSWORD && (
           <div className="col">
             <label htmlFor="length-input">
-              Length&nbsp;{length}&nbsp;charters
+              Length:&nbsp;{length}&nbsp;charters
             </label>
           </div>
         )}
         {kind === KIND.PIN && (
           <div className="col">
             <label htmlFor="length-input">
-              Size&nbsp;{pin_size}&nbsp;digits
+              Size:&nbsp;{pin_size}&nbsp;digits
             </label>
           </div>
         )}
         {kind === KIND.PASSPHRASE && (
           <div className="col">
             <label htmlFor="length-input">
-              Size&nbsp;{passphrase_size}&nbsp;words
+              Size:&nbsp;{passphrase_size}&nbsp;words
             </label>
           </div>
         )}
@@ -255,6 +264,45 @@ export default function App() {
               onChange={(e) => set_s_is_enabled(e.target.checked)}
             />
             &nbsp;<label htmlFor="s_is_enabled">!#$%&</label>
+          </div>
+        </div>
+      )}
+      {kind === KIND.PIN && (
+        <div className="row settings invisible">
+          <div>
+            <input type="checkbox" />
+          </div>
+        </div>
+      )}
+      {kind === KIND.PASSPHRASE && (
+        <div className="row settings">
+          <div>
+            <input
+              type="checkbox"
+              id="uppercase"
+              checked={capitalize_is_enabled}
+              onChange={(e) => {
+                set_capitalize_is_enabled(e.target.checked);
+                if (e.target.checked) {
+                  set_capitalize_each_is_enabled(false);
+                }
+              }}
+            />
+            &nbsp;<label htmlFor="uppercase">Xxxx_xxxx</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="uppercase_each"
+              checked={capitalize_each_is_enabled}
+              onChange={(e) => {
+                set_capitalize_each_is_enabled(e.target.checked);
+                if (e.target.checked) {
+                  set_capitalize_is_enabled(false);
+                }
+              }}
+            />
+            &nbsp;<label htmlFor="uppercase_each">Xxxx_Xxxx</label>
           </div>
         </div>
       )}
