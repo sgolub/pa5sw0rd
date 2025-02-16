@@ -1,6 +1,15 @@
 {
   "name": "pa5sw0rd",
-  "private": true,
+  "description": "Password generator with a focus on security and usability",
+  "keywords": [
+    "generator",
+    "passphrase",
+    "password",
+    "pin",
+    "security"
+  ],
+  "author": "Sergey Golub <mail@sergey.gl> (https://sergey.gl)",
+  "repository": "https://github.com/sgolub/pa5sw0rd",
   "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.js",
