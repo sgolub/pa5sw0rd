@@ -10,4 +10,4 @@ src/
 jest.config.js
 pnpm-lock.yaml
 tsconfig.json
-vite.config.ts
+vite.config.js
