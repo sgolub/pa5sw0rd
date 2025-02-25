@@ -1,6 +1,8 @@
-<div align="center">
+<!-- <div align="center">
   <img alt="logo" src="https://sgolub.github.io/pa5sw0rd/demo/logo.svg" width="128">
-</div>
+</div> -->
+
+# Pa5sW0rd.
 
 Password generator with a focus on security and usability.
 
