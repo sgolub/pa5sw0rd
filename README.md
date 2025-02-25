@@ -1,4 +1,6 @@
-# Pa5sW0rd.
+<div align="center">
+  <img alt="logo" src="https://sgolub.github.io/pa5sw0rd/demo/logo.svg" width="128">
+</div>
 
 Password generator with a focus on security and usability.
 
@@ -21,7 +23,7 @@ import password from 'pa5sw0rd/password';
 import pin from 'pa5sw0rd/pin';
 import passphrase from 'pa5sw0rd/passphrase';
 
-// common.js
+// CommonJS
 const Pa5sW0rd = require('pa5sw0rd');
 const password = require('pa5sw0rd/password');
 const pin = require('pa5sw0rd/pin');
