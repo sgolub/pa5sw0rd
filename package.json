@@ -10,7 +10,7 @@
   ],
   "author": "Sergey Golub <mail@sergey.gl> (https://sergey.gl)",
   "repository": "https://github.com/sgolub/pa5sw0rd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "./dist/index.js",
   "exports": {
